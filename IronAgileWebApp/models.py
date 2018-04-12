@@ -19,3 +19,27 @@ class UserProfile(models.Model):
     ville = models.CharField(max_length=50)
 
 
+class Evenement(models.Model):
+    """
+    Class pour la gestion des evenements
+    """
+
+    titre = models.CharField(max_length=50)
+    date = models.DateField()
+    heure = models.TimeField()
+    adresse = models.CharField(max_length=50)
+    codePostal = models.CharField(max_length=5)
+    ville = models.CharField(max_length=50)
+
+
+class Concerner(models.Model):
+    """
+        Class connaître si l'utilisateur est concerné par un événement
+    """
+
+    present = models.boolean
+    fk_userProfile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=False)
+    fk_evenement = models.ForeignKey(Evenement, on_delete=models.CASCADE, null=False)
+
+    class Meta:
+        unique_together = (('fk_userProfile', 'fk_evenement'),)
