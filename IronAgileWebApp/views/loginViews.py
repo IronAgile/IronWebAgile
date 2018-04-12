@@ -3,9 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-from irontask_app.forms.LoginForm import ConnexionForm
-
-from ironAgileWeb.models import UserProfile
+from IronAgileWebApp.forms.LoginForm import ConnexionForm
+from IronAgileWebApp.models import UserProfile
 
 
 def user_login(request):
@@ -19,6 +18,7 @@ def user_login(request):
                 login(request, user)
                 return redirect('/')
             else:
+                print(form.errors)
 
 
     form = ConnexionForm()
