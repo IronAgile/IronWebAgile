@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 
 
-login_required(login_url='login/')
+
 
 @login_required(login_url='login/')
 def listEvenement(request):
@@ -20,6 +20,16 @@ def listEvenement(request):
     return render(request, 'listEvenement.html', {'Evenement':evenement})
 
 @login_required(login_url='login/')
-def voirEvenement(request, id):
-    evenement = Evenement.objects.get(id=id)
-    return  render (request, 'voirEvenement.html', {'Evenement':evenement})
+def InscriptionEvenement(request, id):
+
+    eve = Evenement.objects.get(pk=id)
+    inscription = Concerner.objects.create(fk_evenement=eve, fk_userProfile=request.user)
+    inscription.save()
+
+    return redirect('/')
+
+@login_required(login_url='login/')
+def SupprimerInscriptionEvenement(request, id):
+    eve = Evenement.objects.get(pk=id)
+    inscription = Concerner.objects.filter(fk_evenement=eve, fk_userProfile=request.user).delete()
+    return redirect('/')

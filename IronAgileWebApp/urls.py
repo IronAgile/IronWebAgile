@@ -20,18 +20,18 @@ router.register(r'user/', UserViewSet)
 urlpatterns = [
 
     # Gestion de la session
-    url('login/', loginViews.user_login, name='login'),
-    url('logout/', loginViews.logout_user, name='logout_user'),
-    url('register/', registerViews.signup, name='signup'),
-    url('lostpw', lostPwViews.lost, name='lostpw'),
+    path('login/', loginViews.user_login, name='login'),
+    path('logout/', loginViews.logout_user, name='logout_user'),
+    path('register/', registerViews.signup, name='signup'),
+    path('lostpw', lostPwViews.lost, name='lostpw'),
 
     # Base de l'ihm accessible pour tests
-    url('base', lostPwViews.base, name='base'),
-    url('', evenement.listEvenement, name='index'),
+    path('base', lostPwViews.base, name='base'),
+    path('', evenement.listEvenement, name='index'),
 
     #evenement
-    url('evenement', evenement.listEvenement, name='listEvenement'),
-    url('evenement/<id>/', evenement.voirEvenement, name='voirEvenement'),
+    path('evenement/', evenement.listEvenement, name='listEvenement'),
+    path('evenement/inscription/<id>/', evenement.InscriptionEvenement, name='inscriptionEvenement'),
 
     #api
     url(r'^api/', include(router.urls)),
