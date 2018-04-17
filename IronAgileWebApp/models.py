@@ -22,6 +22,8 @@ class Profile(models.Model):
     codePostal = models.CharField(max_length=5)
     ville = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.user.last_name + ' ' + self.user.first_name
 
     @receiver(post_save, sender=User)
     def update_user_profile(sender, instance, created, **kwargs):
@@ -40,6 +42,9 @@ class Evenement(models.Model):
     adresse = models.CharField(max_length=50)
     codePostal = models.CharField(max_length=5)
     ville = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.titre +' le ' + self.date
 
 
 

@@ -3,7 +3,7 @@ from django.urls import path, include
 
 from django.conf.urls import url, include
 
-from IronAgileWebApp.views import loginViews, registerViews, lostPwViews
+from IronAgileWebApp.views import loginViews, registerViews, lostPwViews, evenement
 
 from django.conf.urls import include, url
 from django.contrib import admin
@@ -27,6 +27,10 @@ urlpatterns = [
 
     # Base de l'ihm accessible pour tests
     url('base', lostPwViews.base, name='base'),
+
+    #evenement
+    url('evenement', evenement.listEvenement, name='listEvenement'),
+    url('evenement/<id>/', evenement.voirEvenement, name='voirEvenement'),
 
     #api
     url(r'^api/', include(router.urls)),
