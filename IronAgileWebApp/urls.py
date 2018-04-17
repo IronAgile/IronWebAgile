@@ -8,9 +8,9 @@ from IronAgileWebApp.views import loginViews, registerViews, lostPwViews
 urlpatterns = [
 
     # Gestion de la session
-    url('login/', loginViews.user_login),
+    url('login/', loginViews.user_login, name='login'),
     url('logout/', loginViews.logout_user, name='logout_user'),
-    url('register/', registerViews.register, name='register'),
+    url('register/', registerViews.signup, name='signup'),
     url('lostpw', lostPwViews.lost, name='lostpw'),
 
     # Base de l'ihm accessible pour tests

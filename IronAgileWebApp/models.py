@@ -1,9 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 
-class UserProfile(models.Model):
+class Profile(models.Model):
     """
     Class pour la gestion des utilateurs
     """
@@ -18,6 +22,11 @@ class UserProfile(models.Model):
     codePostal = models.CharField(max_length=5)
     ville = models.CharField(max_length=50)
 
+    @receiver(post_save, sender=User)
+    def update_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+        instance.profile.save()
 
 class Evenement(models.Model):
     """
@@ -31,6 +40,8 @@ class Evenement(models.Model):
     codePostal = models.CharField(max_length=5)
     ville = models.CharField(max_length=50)
 
+
+
     class Meta:
         unique_together = (('titre', 'date'),)
 
@@ -40,7 +51,7 @@ class Concerner(models.Model):
         Class connaître si l'utilisateur est concerné par un événement
     """
 
-    fk_userProfile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=False)
+    fk_userProfile = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     fk_evenement = models.ForeignKey(Evenement, on_delete=models.CASCADE, null=False)
 
     class Meta:

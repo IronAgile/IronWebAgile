@@ -1,5 +1,5 @@
 from django import forms
-from IronAgileWebApp.models import UserProfile
+from IronAgileWebApp.models import Profile
 
 
 class ConnexionForm(forms.Form):
