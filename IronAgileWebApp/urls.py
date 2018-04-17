@@ -27,6 +27,7 @@ urlpatterns = [
 
     # Base de l'ihm accessible pour tests
     url('base', lostPwViews.base, name='base'),
+    url('', evenement.listEvenement, name='index'),
 
     #evenement
     url('evenement', evenement.listEvenement, name='listEvenement'),

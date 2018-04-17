@@ -11,6 +11,7 @@ from django.core.paginator import Paginator
 
 login_required(login_url='login/')
 
+@login_required(login_url='login/')
 def listEvenement(request):
     """Vue qui retourne la liste de tous les evenements"""
 
@@ -18,6 +19,7 @@ def listEvenement(request):
 
     return render(request, 'listEvenement.html', {'Evenement':evenement})
 
+@login_required(login_url='login/')
 def voirEvenement(request, id):
     evenement = Evenement.objects.get(id=id)
     return  render (request, 'voirEvenement.html', {'Evenement':evenement})
