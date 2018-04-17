@@ -27,10 +27,13 @@
         <p></p>
         {{ form.password }}
         <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
-        <button class="btn btn-xs btn-basic btn-block" type="submit">Créer un compte</button>
-        <a href="#" class="">mot de passe oublié ?</a>
+        <a href="{% url 'register' %}" class="btn btn-outline-secondary btn-sm btn-block" role="button">Créer un compte</a>
+        <a href="{% url 'lostpw' %}" class="">mot de passe oublié ?</a>
     </form>
 </div>
 
 </body>
 </html>
+<style type="text/css">
+    body { background: #21aba5 !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+</style>
