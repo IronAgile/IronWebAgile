@@ -31,13 +31,15 @@ class Evenement(models.Model):
     codePostal = models.CharField(max_length=5)
     ville = models.CharField(max_length=50)
 
+    class Meta:
+        unique_together = (('titre', 'date'),)
+
 
 class Concerner(models.Model):
     """
         Class connaître si l'utilisateur est concerné par un événement
     """
 
-    present = models.boolean
     fk_userProfile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=False)
     fk_evenement = models.ForeignKey(Evenement, on_delete=models.CASCADE, null=False)
 
