@@ -33,3 +33,7 @@ def SupprimerInscriptionEvenement(request, id):
     eve = Evenement.objects.get(pk=id)
     inscription = Concerner.objects.filter(fk_evenement=eve, fk_userProfile=request.user).delete()
     return redirect('/')
+
+def mesInscriptions(request):
+    inscription = Evenement.objects.filter(concerner__fk_userProfile=request.user)
+    return render(request, 'mesInscriptions.html', {'inscriptions' : inscription})
