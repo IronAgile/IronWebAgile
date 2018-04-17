@@ -36,8 +36,7 @@ def signup(request):
             user.profile.username = form.cleaned_data.get('email')
             user.save()
             raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=user.username, password=raw_password)
-            login(request, user)
+
         return redirect('login')
     else:
         form = SignUpForm()

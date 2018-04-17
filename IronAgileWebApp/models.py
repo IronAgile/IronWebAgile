@@ -22,6 +22,7 @@ class Profile(models.Model):
     codePostal = models.CharField(max_length=5)
     ville = models.CharField(max_length=50)
 
+
     @receiver(post_save, sender=User)
     def update_user_profile(sender, instance, created, **kwargs):
         if created:
@@ -53,6 +54,7 @@ class Concerner(models.Model):
 
     fk_userProfile = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     fk_evenement = models.ForeignKey(Evenement, on_delete=models.CASCADE, null=False)
+    is_present = models.BooleanField(default=False)
 
     class Meta:
         unique_together = (('fk_userProfile', 'fk_evenement'),)
