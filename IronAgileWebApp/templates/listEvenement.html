@@ -1,0 +1,41 @@
+ <div class="container ">
+        <div class="row mt-3 ">
+            <div class="col   ">
+                <div class="row mt-3 mb-1">
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Benevoles -->
+
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Sexe</th>
+                <th scope="col">Ville</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for benevole in Benevole %}
+                <tr>
+                    <td>{{ benevole.nom }}</td>
+                    <td>{{ benevole.prenom }}</td>
+                    <td>{{ benevole.sexe }}</td>
+                    <td>{{ benevole.ville }}</td>
+                    <td>{{ benevole.telephoneFixe }}</td>
+                       <td>
+                        <a href="{% url 'getBenevole' benevole.pk %}" class="btn btn-info  active" role="button" aria-pressed="true">S'inscrire</a>
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
