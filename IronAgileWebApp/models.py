@@ -4,9 +4,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-import qrcode
+
 from django.urls import reverse
-from io import StringIO
 
 
 from django.db import models
@@ -67,6 +66,7 @@ class Concerner(models.Model):
 
     fk_userProfile = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     fk_evenement = models.ForeignKey(Evenement, on_delete=models.CASCADE, null=False)
+    date_inscriptions = models.DateField(auto_now_add=True)
     is_present = models.BooleanField(default=False)
 
 

@@ -11,7 +11,8 @@ from rest_framework import routers
 from IronAgileWebApp.views.api import *
 
 router = routers.DefaultRouter()
-router.register(r'concerner', ConcernerViewSet)
+router.register(r'concerner/', ConcernerViewSet)
+router.register(r'evenement/', EvenementViewSet)
 router.register(r'user/', UserViewSet)
 
 

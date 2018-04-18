@@ -12,3 +12,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         model = User
         fields = ('__all__')
 
+class EvenementSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Evenement
+        fields = ('__all__')
