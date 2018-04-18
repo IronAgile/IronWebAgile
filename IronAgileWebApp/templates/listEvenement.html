@@ -39,7 +39,7 @@
 
                        {% getInscriptionEnCour request.user eve.id as inscrit %}
                            {% if inscrit %}
-                        <a href="{% url 'inscriptionEvenement' eve.id%}" class="btn btn  active" role="button" aria-pressed="true">Voir l'inscription</a>
+                        <a href="{% url 'invitation' eve.pk %}" class="btn btn  active" role="button" aria-pressed="true">Imprimer l'invitation</a>
                         </button>
                            {% else %}
                            <a href="{% url 'inscriptionEvenement' eve.id%}" class="btn btn-info  active" role="button" aria-pressed="true">S'inscrire</a>

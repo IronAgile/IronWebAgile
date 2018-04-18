@@ -8,6 +8,8 @@ class ConcernerViewSet(viewsets.ModelViewSet):
     queryset = Concerner.objects.all()
     serializer_class = ConcernerSerializer
 
+
+
 class UserViewSet(viewsets.ModelViewSet):
 
     queryset = User.objects.all()

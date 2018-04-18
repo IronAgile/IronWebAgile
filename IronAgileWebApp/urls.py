@@ -3,7 +3,7 @@ from django.urls import path, include
 
 from django.conf.urls import url, include
 
-from IronAgileWebApp.views import loginViews, registerViews, lostPwViews, evenement
+from IronAgileWebApp.views import loginViews, registerViews, lostPwViews, evenement, generateInvitation
 
 from django.conf.urls import include, url
 from django.contrib import admin
@@ -35,6 +35,10 @@ urlpatterns = [
     path('evenement/inscription/<id>/', evenement.InscriptionEvenement, name='inscriptionEvenement'),
     path('evenement/desinscrire/<id>/', evenement.SupprimerInscriptionEvenement, name='DesinscrireEvenement'),
     path('evenement/mesinscriptions/', evenement.mesInscriptions, name='mesInscriptions'),
+
+    #generer invitation
+    path('invitation/<id>/', generateInvitation.generate_invitation, name='invitation'),
+
 
     #api
     url(r'^api/', include(router.urls)),
