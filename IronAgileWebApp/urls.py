@@ -32,9 +32,9 @@ urlpatterns = [
 
     #evenement
     path('evenement/', evenement.listEvenement, name='listEvenement'),
-    path('evenement/inscription/<id>/', evenement.InscriptionEvenement, name='inscriptionEvenement'),
-    path('evenement/desinscrire/<id>/', evenement.SupprimerInscriptionEvenement, name='DesinscrireEvenement'),
-    path('evenement/mesinscriptions/', evenement.mesInscriptions, name='mesInscriptions'),
+    path('inscription/<id>/', evenement.InscriptionEvenement, name='inscriptionEvenement'),
+    path('desinscrire/<id>/', evenement.SupprimerInscriptionEvenement, name='DesinscrireEvenement'),
+    path('mesinscriptions/', evenement.mesInscriptions, name='mesInscriptions'),
 
     #generer invitation
     path('invitation/<id>/', generateInvitation.generate_invitation, name='invitation'),

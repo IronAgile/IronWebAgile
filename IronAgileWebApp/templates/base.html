@@ -16,8 +16,9 @@
       <a class="navbar-brand" href="#">IronAgile</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="{% url 'listEvenement' %}">Evénements</a></li>
-      <li><a href="{% url 'mesInscriptions' %}">Mes inscriptions</a></li>
+      <li class={% if  '/evenement/' in request.path %} active {% endif %}><a href="{% url 'listEvenement' %}">Evénements</a></li>
+
+      <li  class={% if  '/mesinscriptions/' in request.path %} active {% endif %}><a href="{% url 'mesInscriptions' %}">Mes inscriptions</a></li>
         <li><a href="{% url 'logout_user' %}">Se deconnecter</a></li>
     </ul>
   </div>
