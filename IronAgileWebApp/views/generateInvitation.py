@@ -11,7 +11,7 @@ from rest_framework.reverse import reverse
 def generate_invitation(request, id):
     # Create the HttpResponse object with the appropriate PDF headers.
     response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="somefilename.pdf"'
+    response['Content-Disposition'] = 'attachment; filename="invitation.pdf"'
 
     p = canvas.Canvas(response)
     evenement = Evenement.objects.get(id=id)

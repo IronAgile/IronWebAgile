@@ -14,7 +14,7 @@
     <!-- Benevoles -->
 
     <div class="container">
-        <table class="table table-striped">
+        <table class="table">
             <thead>
             <tr>
                 <th scope="col">Titre</th>
@@ -26,8 +26,9 @@
                 <th scope="col"></th>
             </tr>
             </thead>
+        {% for eve in Evenement %}
             <tbody>
-                {% for eve in Evenement %}
+
                 <tr>
                     <td>{{ eve.titre }}</td>
                     <td>{{ eve.date }}</td>
@@ -39,10 +40,10 @@
 
                        {% getInscriptionEnCour request.user eve.id as inscrit %}
                            {% if inscrit %}
-                        <a href="{% url 'invitation' eve.pk %}" class="btn btn  active" role="button" aria-pressed="true">Imprimer l'invitation</a>
+                        <a href="{% url 'invitation' eve.pk %}" class="btn btn-success  active" role="button" aria-pressed="true">Imprimer l'invitation</a>
                         </button>
                            {% else %}
-                           <a href="{% url 'inscriptionEvenement' eve.id%}" class="btn btn-info  active" role="button" aria-pressed="true">S'inscrire</a>
+                           <a href="{% url 'inscriptionEvenement' eve.id%}" class="btn btn-info  " role="button" aria-pressed="true">S'inscrire</a>
                         </button>
                            {% endif %}
                     </td>
