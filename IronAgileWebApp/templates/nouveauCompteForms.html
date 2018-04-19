@@ -9,6 +9,19 @@
       <h1>Créer un compte utilisateur</h1>
     </div>
 
+    <div class="container">
+        {% if messages %}
+
+            <div class="alert alert-danger" role="alert">
+
+                {% for message in messages %}
+
+                    {{ message }}
+
+                {% endfor %}
+
+            </div>
+    {% endif %}
     <form method="POST">{% csrf_token %}
         <div class="w-50 p-3 border mb-4" style="background-color: #8fd8d6; margin: auto;">
 
