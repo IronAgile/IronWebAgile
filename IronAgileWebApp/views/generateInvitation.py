@@ -21,6 +21,10 @@ def generate_invitation(request, id):
     w = b[2] - b[0]
     h = b[3] - b[1]
 
+
+    p.drawString(30, 750, 'Invitation à : ' + evenement.__str__())
+    p.drawString(30, 720, 'Veuillez conserver cette invitation ainsi que le QRCode')
+
     d = Drawing(400, 400, transform=[300. / w, 0, 0, 300. / h, 0, 0])
     d.add(qrw)
 

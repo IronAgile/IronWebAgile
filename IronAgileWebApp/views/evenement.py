@@ -34,6 +34,14 @@ def SupprimerInscriptionEvenement(request, id):
     inscription = Concerner.objects.filter(fk_evenement=eve, fk_userProfile=request.user).delete()
     return redirect('/')
 
+@login_required(login_url='login/')
 def mesInscriptions(request):
     inscription = Evenement.objects.filter(concerner__fk_userProfile=request.user)
     return render(request, 'mesInscriptions.html', {'inscriptions' : inscription})
+
+@login_required(login_url='login/')
+def voirDetailEvenement(request, id):
+    evenement = Evenement.objects.get(id=id)
+    concerner = Concerner.objects.filter(fk__evenement=evenement)
+    return render(request, 'voirDetailEvenement.html', {'evenement': evenement, 'concernenr':concerner})
+
