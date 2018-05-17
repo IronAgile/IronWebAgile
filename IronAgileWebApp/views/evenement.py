@@ -46,3 +46,6 @@ def voirDetailEvenement(request, id):
     concerner = Concerner.objects.filter(fk__evenement=eve)
     return render(request, 'voirDetailEvenement.html', {'evenement': eve, 'concernenr':concerner})
 
+def detailsEvenements(request):
+    pass
+

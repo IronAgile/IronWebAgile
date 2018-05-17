@@ -26,6 +26,7 @@ urlpatterns = [
     path('register/', registerViews.signup, name='signup'),
     path('lostpw', lostPwViews.lost, name='lostpw'),
 
+
     # Base de l'ihm accessible pour tests
     path('base', lostPwViews.base, name='base'),
     path('', evenement.listEvenement, name='index'),
