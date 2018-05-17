@@ -19,6 +19,10 @@
       <li class={% if  '/evenement/' in request.path %} active {% endif %}><a href="{% url 'listEvenement' %}">Evénements</a></li>
 
       <li  class={% if  '/mesinscriptions/' in request.path %} active {% endif %}><a href="{% url 'mesInscriptions' %}">Mes inscriptions</a></li>
+
+    {% if request.user.is_superuser %}
+    <li  class={% if  '/details-evenements/' in request.path %} active {% endif %}><a href="{% url 'detailsEvenements' %}">Gerer les évenements</a></li>
+    {% endif %}
         <li><a href="{% url 'logout_user' %}">Se deconnecter</a></li>
     </ul>
   </div>
