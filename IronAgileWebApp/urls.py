@@ -38,7 +38,7 @@ urlpatterns = [
     path('mesinscriptions/', evenement.mesInscriptions, name='mesInscriptions'),
 
     #admin
-    path('details-evenements/', evenement.detailsEvenements, name='detailsEvenements'),
+    path('details-evenements/<id>/', evenement.detailsEvenements, name='detailsEvenements'),
 
     #generer invitation
     path('invitation/<id>/', generateInvitation.generate_invitation, name='invitation'),

@@ -46,6 +46,8 @@ def voirDetailEvenement(request, id):
     concerner = Concerner.objects.filter(fk__evenement=eve)
     return render(request, 'voirDetailEvenement.html', {'evenement': eve, 'concernenr':concerner})
 
-def detailsEvenements(request):
-    pass
+def detailsEvenements(request, id):
+    evenement = Evenement.objects.get(pk=id)
+    nb = Concerner.objects.filter(fk_evenement=evenement).count()
+    return render(request, 'listInscritEvenement.html', {'nb_inscrit':nb})
 
