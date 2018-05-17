@@ -26,7 +26,6 @@ urlpatterns = [
     path('register/', registerViews.signup, name='signup'),
     path('lostpw', lostPwViews.lost, name='lostpw'),
 
-
     # Base de l'ihm accessible pour tests
     path('base', lostPwViews.base, name='base'),
     path('', evenement.listEvenement, name='index'),
@@ -38,7 +37,7 @@ urlpatterns = [
     path('mesinscriptions/', evenement.mesInscriptions, name='mesInscriptions'),
 
     #admin
-    path('details-evenements/<id>/', evenement.detailsEvenements, name='detailsEvenements'),
+    path('details-evenements/', evenement.detailsEvenements, name='detailsEvenements'),
 
     #generer invitation
     path('invitation/<id>/', generateInvitation.generate_invitation, name='invitation'),
