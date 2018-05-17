@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td>{{ evenement.titre }}</td>
+                <td>{{ evenement.date }}</td>
+                <td>{{ evenement.heure }}</td>
+                <td>{{ evenement.adresse }}</td>
+                <td>{{ evenement.codePostal }}</td>
+                <td>{{ evenement.ville }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Nombre de personnes présente: {{ nb_inscrit }}</p>
+{% endblock %}
