@@ -43,8 +43,8 @@ def mesInscriptions(request):
 @login_required(login_url='login/')
 def voirDetailEvenement(request, id):
     eve = Evenement.objects.get(id=id)
-    concerner = Concerner.objects.filter(fk__evenement=eve)
-    return render(request, 'voirDetailEvenement.html', {'evenement': eve, 'concernenr':concerner})
+    nb = Concerner.objects.filter(fk__evenement=eve).count()
+    return render(request, 'voirDetailEvenement.html', {'evenement': eve, 'nb_inscrit':nb})
 
 
 @login_required(login_url='login/')
