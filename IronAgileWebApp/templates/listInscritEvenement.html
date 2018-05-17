@@ -1,4 +1,13 @@
-<html>
-
-{{ nb_inscrit }}
-</html>
+{% extends 'base.html' %}
+{% block content %}
+    <tbody>
+            <tr>
+                <td>{{ Evenement.titre }}</td>
+                <td>{{ Evenement.date }}</td>
+                <td>{{ Evenement.heure }}</td>
+                <td>{{ Evenement.adresse }}</td>
+                <td>{{ Evenement.codePostal }}</td>
+                <td>{{ Evenement.ville }}</td>
+            </tr>
+        </tbody>
+{% endblock %}

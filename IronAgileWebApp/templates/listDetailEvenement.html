@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container ">
+        <div class="row mt-3 ">
+            <div class="col   ">
+                <div class="row mt-3 mb-1">
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Titre</th>
+                <th scope="col">date</th>
+                <th scope="col">heure</th>
+                <th scope="col">adresse</th>
+                <th scope="col">code postal</th>
+                <th scope="col">ville</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+        {% for eve in Evenement %}
+            <tbody>
+
+                <tr>
+                    <td>{{ eve.titre }}</td>
+                    <td>{{ eve.date }}</td>
+                    <td>{{ eve.heure }}</td>
+                    <td>{{ eve.adresse }}</td>
+                    <td>{{ eve.codePostal }}</td>
+                    <td>{{ eve.ville }}</td>
+                       <td>
+
+                        <a href="{% url 'voirEvenements' eve.pk %}" class="btn btn-info  active" role="button" aria-pressed="true">Details de l'évènement</a>
+                        </button>
+
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+ </div>
+{% endblock %}
