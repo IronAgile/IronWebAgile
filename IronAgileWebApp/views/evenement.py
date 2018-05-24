@@ -51,9 +51,3 @@ def voirDetailEvenement(request, id):
 def detailsEvenements(request):
     evenement = Evenement.objects.all()
     return render(request, 'listDetailEvenement.html', {'Evenement':evenement})
-
-
-@login_required(login_url='login/')
-def voirEvenement(request,id):
-    evenement = Evenement.objects.get(id=id)
-    return render(request, 'listInscritEvenement.html', {'Evenement': evenement})

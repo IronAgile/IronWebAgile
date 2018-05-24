@@ -1,16 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
-    <table class="table table-striped">
-        <tbody>
+
+    <h1 class="d-block text-center">
+        <div class="bg-info">{{ evenement.titre }}</div>
+    </h1>
+
+    <div class="container">
+        <table class="table table-striped bg-info">
+            <thead>
             <tr>
-                <td>{{ evenement.titre }}</td>
+                <th scope="col">Date</th>
+                <th scope="col">Heure</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Code postal</th>
+                <th scope="col">ville</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
                 <td>{{ evenement.date }}</td>
                 <td>{{ evenement.heure }}</td>
                 <td>{{ evenement.adresse }}</td>
                 <td>{{ evenement.codePostal }}</td>
                 <td>{{ evenement.ville }}</td>
             </tr>
-        </tbody>
-    </table>
-    <p>Nombre de personnes présente: {{ nb_inscrit }}</p>
+            </tbody>
+        </table>
+    </div>
+
+    <h3 class="text-center text-lg-center bg-info">Nombre de personne(s) présente(s): {{ nb_inscrit }}</h3>
 {% endblock %}
+
+
