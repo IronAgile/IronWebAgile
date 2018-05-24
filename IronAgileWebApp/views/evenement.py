@@ -44,7 +44,8 @@ def mesInscriptions(request):
 def voirDetailEvenement(request, id):
     eve = Evenement.objects.get(id=id)
     nb = Concerner.objects.filter(fk_evenement=eve).count()
-    return render(request, 'voirDetailEvenement.html', {'evenement': eve, 'nb_inscrit':nb})
+    nb_present = Concerner.objects.filter(fk_evenement=eve, is_present=True).count()
+    return render(request, 'voirDetailEvenement.html', {'evenement': eve, 'nb_inscrit':nb, 'nb_present':nb_present})
 
 
 @login_required(login_url='login/')
