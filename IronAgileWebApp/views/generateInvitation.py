@@ -9,6 +9,9 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 
 from rest_framework.reverse import reverse
 
+from IronWebAgile.ironAgileWeb.settings import STATICFILES_DIRS
+
+
 def generate_invitation(request, id):
     # Create the HttpResponse object with the appropriate PDF headers.
     response = HttpResponse(content_type='application/pdf')
@@ -30,7 +33,7 @@ def generate_invitation(request, id):
     p.drawString(100, 600, "ville : " + evenement.ville)
     p.drawString(100, 550, "Code Postal : " + evenement.codePostal)
     p.drawString(100, 500, "heure : " + str(evenement.heure))
-    p.drawImage(staticfiles_storage.url('windev.jpg'), 300, 0, width=300, height=600)
+    p.drawImage(STATICFILES_DIRS[0] + 'windev.jpg', 300, 0, width=300, height=600)
     d = Drawing(400, 400, transform=[300. / w, 0, 0, 300. / h, 0, 0])
     d.add(qrw)
 
