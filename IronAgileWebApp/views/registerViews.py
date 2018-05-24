@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 #from IronAgileWebApp.forms import RegisterForm
-
+from django.contrib import messages
 from IronAgileWebApp.models import Profile
 
 
@@ -37,7 +37,11 @@ def signup(request):
             user.save()
             raw_password = form.cleaned_data.get('password1')
 
-        return redirect('login')
+            return redirect('login')
+        else:
+            messages.add_message(request, messages.INFO, form.errors)
+
+
     else:
         form = SignUpForm()
     return render(request, 'nouveauCompteForms.html', {'form': form})

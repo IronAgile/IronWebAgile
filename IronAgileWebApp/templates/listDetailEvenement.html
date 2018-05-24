@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    {% load filters %}
- <div class="container ">
+<div class="container ">
         <div class="row mt-3 ">
             <div class="col   ">
                 <div class="row mt-3 mb-1">
@@ -36,15 +35,8 @@
                     <td>{{ eve.ville }}</td>
                        <td>
 
-                       {% getInscriptionEnCour request.user eve.id as inscrit %}
-                           {% if inscrit %}
-                        <a href="{% url 'invitation' eve.pk %}" class="btn btn-success  active" role="button" aria-pressed="true">Imprimer l'invitation</a>
+                        <a href="{% url 'voirEvenements' eve.pk %}" class="btn btn-info  active" role="button" aria-pressed="true">Details de l'évènement</a>
                         </button>
-                           {% else %}
-                           <a href="{% url 'inscriptionEvenement' eve.id%}" class="btn btn-info  " role="button" aria-pressed="true">S'inscrire</a>
-                        </button>
-                           {% endif %}
-
 
                     </td>
                 </tr>

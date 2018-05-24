@@ -16,8 +16,15 @@
       <a class="navbar-brand" href="#">IronAgile</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="{% url 'listEvenement' %}">Evénements</a></li>
-      <li><a href="{% url 'mesInscriptions' %}">Mes inscriptions</a></li>
+      <li class={% if  '/evenement/' in request.path %} active {% endif %}><a href="{% url 'listEvenement' %}">Evénements</a></li>
+
+      <li  class={% if  '/mesinscriptions/' in request.path %} active {% endif %}><a href="{% url 'mesInscriptions' %}">Mes inscriptions</a></li>
+
+
+
+    {% if request.user.is_superuser %}
+    <li  class={% if  '/details-evenements/' in request.path %} active {% endif %}><a href="{% url 'detailsEvenements' %}">Gerer les évenements</a></li>
+    {% endif %}
         <li><a href="{% url 'logout_user' %}">Se deconnecter</a></li>
     </ul>
   </div>
@@ -31,3 +38,5 @@
 <style type="text/css">
     body { background: #21aba5 !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
 </style>
+
+
